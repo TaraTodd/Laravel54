@@ -3,11 +3,10 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
-use App\DonorDetails;
+use App\Crud;
 
-class DONORDETAILSController extends Controller
+class CRUDController extends Controller
 {
-
     /**
      * Display a listing of the resource.
      *
@@ -15,11 +14,9 @@ class DONORDETAILSController extends Controller
      */
     public function index()
     {
-
-    	$donors = DonorDetails::all()->toArray();
+        $cruds = Crud::all()->toArray();
         
-        return view('home', compact('donors'));
-        
+        return view('crud.index', compact('cruds'));
     }
 
     /**
@@ -29,7 +26,7 @@ class DONORDETAILSController extends Controller
      */
     public function create()
     {
-        return view('DonorProfile.create');
+        return view('crud.create');
     }
 
     /**
@@ -40,27 +37,13 @@ class DONORDETAILSController extends Controller
      */
     public function store(Request $request)
     {
-        $donor = new DonorDetails([
-          'Donor_id' => $request->get('Donor_id'),
-          'Donor_Title' => $request->get('Donor_Title'),
-          'Donor_FirstName' => $request->get('Donor_FirstName'),
-          'Donor_LastName' => $request->get('Donor_LastName'),
-          'Donor_Gender' => $request->get('Donor_Gender'),
-          'Donor_EthnicOrigin' => $request->get('Donor_EthnicOrigin'),
-          'Donor_Landline' => $request->get('Donor_Landline'),
-          'Donor_Mobile' => $request->get('Donor_Mobile'),
-          'email' => $request->get('email'),
-          'Donor_House_Number' => $request->get('Donor_House_Number'),
-          'Donor_Address_line1' => $request->get('Donor_Address_line1'),
-          'Donor_Address_line2' => $request->get('Donor_Address_line2'),
-          'Donor_Town' => $request->get('Donor_Town'),
-          'Donor_City' => $request->get('Donor_City'),
-          'Donor_County' => $request->get('Donor_County'),
-          'Donor_Country' => $request->get('Donor_Country')
+        $crud = new Crud([
+          'title' => $request->get('title'),
+          'post' => $request->get('post')
         ]);
 
-        $donor->save();
-        return redirect('/home');
+        $crud->save();
+        return redirect('/crud');
     }
 
     /**
@@ -82,7 +65,10 @@ class DONORDETAILSController extends Controller
      */
     public function edit($id)
     {
-        //
+
+        $crud = Crud::find($id);
+        
+        return view('crud.edit', compact('crud','id'));
     }
 
     /**
@@ -94,7 +80,13 @@ class DONORDETAILSController extends Controller
      */
     public function update(Request $request, $id)
     {
-        //
+        
+    	$crud = Crud::find($id);
+        $crud->title = $request->get('title');
+        $crud->post = $request->get('post');
+        $crud->save();
+        return redirect('/crud');
+
     }
 
     /**
@@ -105,7 +97,11 @@ class DONORDETAILSController extends Controller
      */
     public function destroy($id)
     {
-        //
+        
+    	$crud = Crud::find($id);
+      $crud->delete();
+
+      return redirect('/crud');
+        
     }
 }
-

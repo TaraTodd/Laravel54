@@ -1,10 +1,11 @@
 <?php
+// create_cruds_table
 
 use Illuminate\Support\Facades\Schema;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Database\Migrations\Migration;
 
-class CreateDonorDetailsTable extends Migration
+class CreateCrudsTable extends Migration
 {
     /**
      * Run the migrations.
@@ -13,12 +14,11 @@ class CreateDonorDetailsTable extends Migration
      */
     public function up()
     {
-        Schema::create('donor_details', function (Blueprint $table) {
+        Schema::create('cruds', function (Blueprint $table) {
             $table->increments('id');
-            $table->increments('medical_id');
-            $table->increments('title');
-            $table->increments('firstname');
-            $table->timestamps('');
+            $table->string('title');
+            $table->string('post');
+            $table->timestamps();
         });
     }
 
@@ -29,6 +29,6 @@ class CreateDonorDetailsTable extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('donor_details');
+        Schema::dropIfExists('cruds');
     }
 }

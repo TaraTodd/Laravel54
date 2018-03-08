@@ -4,7 +4,7 @@ namespace App;
 
 use Illuminate\Database\Eloquent\Model;
 
-class DonorDetails extends Model
+class DonationHistory extends Model
 {
     //
 }

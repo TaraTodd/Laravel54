@@ -66,6 +66,21 @@ class RegisterController extends Controller
             'name' => $data['name'],
             'email' => $data['email'],
             'password' => bcrypt($data['password']),
+            'Donor_Title' => $data['Donor_Title'],
+            'Donor_FirstName' => $data['Donor_FirstName'],
+            'Donor_LastName' => $data['Donor_LastName'],
+            'Donor_Gender' => $data['Donor_Gender'],
+            'Donor_EthnicOrigin' => $data['Donor_EthnicOrigin'],
+            'Donor_Landline' => $data['Donor_Landline'],
+            'Donor_Mobile' => $data['Donor_Mobile'],
+            'Donor_Postcode' => $data['Donor_Postcode'],
+            'Donor_House_Number' => $data['Donor_House_Number'],
+            'Donor_Address_line1' => $data['Donor_Address_line1'],
+            'Donor_Address_line2' => $data['Donor_Address_line2'],
+            'Donor_Town' => $data['Donor_Town'],
+            'Donor_City' => $data['Donor_City'],
+            'Donor_County' => $data['Donor_County'],
+            'Donor_Country' => $data['Donor_Country']
         ]);
     }
 }

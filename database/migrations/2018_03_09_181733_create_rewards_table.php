@@ -4,7 +4,7 @@ use Illuminate\Support\Facades\Schema;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Database\Migrations\Migration;
 
-class CreateAppointmentsTable extends Migration
+class CreateRewardsTable extends Migration
 {
     /**
      * Run the migrations.
@@ -13,12 +13,13 @@ class CreateAppointmentsTable extends Migration
      */
     public function up()
     {
-        Schema::create('appointments', function (Blueprint $table) {
+        Schema::create('rewards', function (Blueprint $table) {
             $table->increments('id');
-            $table->string('Appointment_Date');
-            $table->string('Appointment_Day');
-            $table->string('Appointment_Time');
-            $table->string('Appointment_Duration');
+            $table->string('Reward_Name');
+            $table->string('Reward_Type');
+            $table->string('Reward_Description');
+            $table->string('Reward_BloodTotal');
+            $table->string('Reward_YearsDonating');
             $table->rememberToken();
             $table->timestamps();
             $table->softDeletes();
@@ -32,6 +33,6 @@ class CreateAppointmentsTable extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('appointments');
+        Schema::dropIfExists('rewards');
     }
 }

@@ -24,3 +24,13 @@ Route::resource('DonorProfile', 'DONORDETAILSController');
 Route::resource('crud', 'CRUDController');
 
 Route::resource('user', 'USERController');
+
+Route::resource('medicaldetail', 'MEDICALDETAILController');
+
+Route::resource('appointment', 'APPOINTMENTController');
+
+Route::resource('donationhistory', 'DONATIONHISTORYController');
+
+Route::resource('location', 'LOCATIONController');
+
+Route::resource('reward', 'REWARDController');

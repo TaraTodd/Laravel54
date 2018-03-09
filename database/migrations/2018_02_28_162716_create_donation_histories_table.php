@@ -21,6 +21,7 @@ class CreateDonationHistoriesTable extends Migration
             $table->string('TodayBloodTotal');
             $table->string('BloodTotal');
             $table->string('AppointmentTotal');
+            $table->string('YearsDonating');
             $table->string('Reward');
             $table->rememberToken();
             $table->timestamps();

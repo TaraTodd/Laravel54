@@ -28,7 +28,7 @@ class CreateLocationsTable extends Migration
             $table->string('Location_Date');
             $table->string('Location_Time');
             $table->string('Location_Distance');
-            $table->string('Location_Longtitute');
+            $table->string('Location_Longtitude');
             $table->string('Location_Latitude');
             $table->rememberToken();
             $table->timestamps();

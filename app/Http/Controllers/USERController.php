@@ -7,6 +7,15 @@ use App\User;
 
 class USERController extends Controller
 {
+
+    //stop anyone viewing pages if they are not logged in
+    public function __construct()
+    {
+
+        $this->middleware('auth')->except(['index', 'show']);
+
+    }
+    
     /**
      * Display a listing of the resource.
      *
